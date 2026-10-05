@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 心情搭子</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <div class="brand-mark" aria-hidden="true">心</div>
+        <div>
+          <p class="eyebrow">给此刻留一点空间</p>
+          <h1>AI 心情搭子</h1>
+        </div>
+      </header>
+
+      <section class="composer" aria-labelledby="composer-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="composer-title">你现在感觉怎么样？</h2>
+            <p>写下此刻的感受，得到一份温和的回应。</p>
+          </div>
+          <span class="privacy-note">历史记录保存在本机</span>
+        </div>
+        <p id="privacy-message" class="service-note">点击分析后，本次输入会发送给配置的 AI 服务商；不会发送历史记录。</p>
+        <p id="service-status" class="service-note" role="status">正在检查 AI 配置……</p>
+        <label for="mood-input">此刻的心情</label>
+        <textarea id="mood-input" aria-describedby="input-message" placeholder="例如：今天开会一直被打断，有点烦……"></textarea>
+        <div class="composer-footer">
+          <p id="input-message" class="input-message" aria-live="polite"><span id="character-count">0</span> / 500</p>
+          <button id="analyze-button" type="button" disabled>分析一下</button>
+        </div>
+      </section>
+
+      <section id="result" class="result-panel" aria-labelledby="result-title">
+        <p class="eyebrow">此刻的你</p>
+        <h2 id="result-title">分析结果</h2>
+        <div id="result-empty" class="empty-state"><span aria-hidden="true">☁</span><p>你的心情卡片会出现在这里。</p></div>
+        <article id="mood-card" class="mood-card" aria-live="polite" hidden></article>
+      </section>
+
+      <section id="history" class="history-panel" aria-labelledby="history-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">慢慢看见变化</p><h2 id="history-title">最近记录</h2></div>
+          <button id="clear-history" class="text-button" type="button">清空记录</button>
+        </div>
+        <div id="history-list" class="history-list"><p class="empty-history">还没有记录，写下第一份心情吧。</p></div>
+        <p id="history-message" role="status" class="input-message"></p>
+      </section>
+
+      <footer><p>这是日常情绪整理工具，不能替代专业心理或医疗帮助。</p></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
